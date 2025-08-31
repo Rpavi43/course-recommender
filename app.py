@@ -1,9 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-
-import pymysql
-pymysql.install_as_MySQLdb()
-
-
 from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -411,6 +406,7 @@ def analyze_sentiment(text):
 # ---------------- RUN APP ----------------
 
 if __name__ == '__main__':
-    import os
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    print("✅ Flask is running!")
+    print(app.url_map)  # helpful for debugging routes
+    app.run(debug=True)
+
