@@ -410,8 +410,9 @@ def analyze_sentiment(text):
         return 'neutral'
 # ---------------- RUN APP ----------------
 
+import os
+
 if __name__ == '__main__':
     print("✅ Flask is running!")
-    print(app.url_map)  # helpful for debugging routes
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
